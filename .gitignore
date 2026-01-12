@@ -1,0 +1,12 @@
+Deploy/
+customer_churn.pdf
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+venv/
+env/
+.env
+.venv/
+.DS_Store
+Thumbs.db
