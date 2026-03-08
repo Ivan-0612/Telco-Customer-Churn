@@ -1,51 +1,63 @@
-# Predicción de Abandono de Clientes (Customer Churn)
-Este proyecto de Ciencia de Datos tiene como objetivo desarrollar un modelo de aprendizaje automático para predecir si un cliente abandonará una compañía de telecomunicaciones. Se enfoca en maximizar la detección de clientes con alta probabilidad de abandono.
+# Customer Churn Prediction
 
-## Descripción del Proyecto
-El abandono de clientes es un problema crítico donde el coste de retener a un cliente existente es significativamente menor que el de adquirir uno nuevo. Este proyecto contiene:
-- Análisis y Modelado: EDA , feature engineering y entrenamiento y selección de modelos (XGBoost, Random Forest, KNN).
-- Optimización del modelo: El modelo final se optimiza no solo por accuracy (precisión), sino priorizando el Recall (sensibilidad) a través del F2-Score.
-- Despliegue MLOps: Se empaquetó la aplicación con docker y se desplegó en Render.
+This Data Science project aims to develop a machine learning model to predict whether a customer will leave a telecommunications company. It focuses on maximizing the detection of customers with a high probability of churn.
 
-## Tecnologías Utilizadas
-- Python 3
-- Manipulación de datos: Pandas, NumPy
-- Machine Learning: Scikit-learn, XGBoost.
-- Visualización: Matplotlib, Seaborn.
-- Interpretabilidad: SHAP.
-- Despliegue: Streamlit, Docker, Render
+## Project Description
 
-## Metodología del modelado
+Customer churn is a critical issue where the cost of retaining an existing customer is significantly lower than acquiring a new one. This project contains:
 
-1. Preprocesamiento 
-    - Imputación de valores faltantes.
-    - Feature Scaling: Normalización con MinMaxScaler.
-    - Encoding: One-Hot Encoding y mapeo binario.
+* Analysis and Modeling: EDA, feature engineering, and model training and selection (XGBoost, Random Forest, KNN).
+* Model Optimization: The final model is optimized not only for accuracy but also prioritizing Recall (sensitivity) through the F2-Score.
+* MLOps Deployment: The application was packaged with Docker and deployed on Render.
 
-2. Resultados del entrenamiento
-El modelo XGBoost fue seleccionado por su capacidad de generalizar y rendimiento superior.
+## Technologies Used
 
-| Modelo |	ROC AUC |	
-|--------|----------|
-|XGBoost|	0.8428 |	
-|Random Forest |	0.8420 |	
-|KNN|	0.8136|	
+* Python 3
+* Data manipulation: Pandas, NumPy
+* Machine Learning: Scikit-learn, XGBoost.
+* Visualization: Matplotlib, Seaborn.
+* Interpretability: SHAP.
+* Deployment: Streamlit, Docker, Render
 
-3. Optimización del umbral de decisión del modelo
-Se ajustó el umbral de decisión para maximizar el F2-Score (priorizando el rcall sobre la precision), dado que un falso negativo es más caro que un falso positivo.
-- Umbral óptimo: 0.3915
-- Recall alcanzado: 87.63%
+## Modeling Methodology
 
-## Explicabilidad del modelo
-Se usaron los valores shap para la explicabilidad del modelo. Los factores clave identificados son:
-- Aumento de probabilidad de abandono: Fibra Óptica, Cargos Mensuales altos y Pago por Cheque Electrónico.
-- Disminución de probabilidad de abandono: Contratos de dos años y antigüedad (tenure).
+1. Preprocessing
+* Missing value imputation.
+* Feature Scaling: Normalization with MinMaxScaler.
+* Encoding: One-Hot Encoding and binary mapping.
 
-## Despliegue
-Se ha utilizado Streamlit para desarrollar la aplicación y docker para empaquetarla.  
-El contenedor encapsula tanto el preprocesamiento de datos, como el modelo (XGBoost) y la lógica de la explicabilidad (SHAP).
 
-### Hosting en Render
-La aplicación está desplegada en Render en el siguiente enlace (puede tardar en iniciar): https://telecom-churn-app-deployment.onrender.com/  
-El repositorio de github del deploy es: https://github.com/Ivan-0612/telecom-churn-app-deployment
+2. Training results
+The XGBoost model was selected for its ability to generalize and superior performance.
+
+| Model | ROC AUC |
+| --- | --- |
+| XGBoost | 0.8428 |
+| Random Forest | 0.8420 |
+| KNN | 0.8136 |
+
+3. Model decision threshold optimization
+The decision threshold was adjusted to maximize the F2-Score (prioritizing recall over precision), given that a false negative is more expensive than a false positive.
+
+* Optimal threshold: 0.3915
+* Recall reached: 87.63%
+
+## Model Explainability
+
+SHAP values were used for model explainability. The key factors identified are:
+
+* Increase in churn probability: Fiber Optic, high Monthly Charges, and Electronic Check payment.
+* Decrease in churn probability: Two-year contracts and tenure.
+
+## Deployment
+
+Streamlit has been used to develop the application and Docker to package it.
+
+The container encapsulates data preprocessing, the model (XGBoost), and the explainability logic (SHAP).
+
+### Hosting on Render
+
+The application is deployed on Render at the following link (it may take a while to start): [https://telecom-churn-app-deployment.onrender.com/](https://telecom-churn-app-deployment.onrender.com/)
+
+The github repository for the deployment is: [https://github.com/Ivan-0612/telecom-churn-app-deployment](https://github.com/Ivan-0612/telecom-churn-app-deployment)
 
